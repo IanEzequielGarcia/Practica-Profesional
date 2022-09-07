@@ -1,0 +1,21 @@
+<!--<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      LOGIN
+    </ion-title>
+  </ion-toolbar>
+</ion-header>-->
+<ion-content [fullscreen]="true">
+  <ion-item class="email">
+    <ion-label position="stacked">Email:</ion-label>
+    <ion-input position="stacked" [(ngModel)]="usuario.email" placeholder="ingrese su correo electronico"></ion-input>
+  </ion-item>
+  <ion-item class="input">
+    <ion-label position="stacked">Contraseña:</ion-label>
+    <ion-input position="stacked" [(ngModel)]="usuario.contrasena" placeholder="ingrese su contraseña"></ion-input>
+  </ion-item>
+  <ion-button (click)="enviar()">
+    ENVIAR
+  </ion-button>
+
+</ion-content>
