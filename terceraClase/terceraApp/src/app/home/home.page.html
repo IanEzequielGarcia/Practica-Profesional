@@ -1,0 +1,34 @@
+<!--<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      LOGIN
+    </ion-title>
+  </ion-toolbar>
+</ion-header>-->
+<div *ngIf="!cargando">
+  <ion-content [fullscreen]="true">
+    <form [formGroup]="loginForm">
+      <ion-item class="email">
+        <ion-label position="stacked">Email:</ion-label>
+        <ion-input position="stacked" formControlName="email" placeholder="ingrese su correo electronico"></ion-input>
+      </ion-item>
+      <ion-item class="input">
+        <ion-label position="stacked">Contraseña:</ion-label>
+        <ion-input position="stacked" formControlName="contrasena" placeholder="ingrese su contraseña"></ion-input>
+      </ion-item>
+      <ion-button (click)="enviar()">
+        ENVIAR
+      </ion-button>
+      <div class="imagenes">
+        <img class="fotoLogin" src="https://firebasestorage.googleapis.com/v0/b/pps-primeraclase.appspot.com/o/usuario1.png?alt=media&token=cebdd214-f569-4f77-b9be-af03af9ea1b2"
+        (click)="login(1)" >
+       <img class="fotoLogin" src="https://firebasestorage.googleapis.com/v0/b/pps-primeraclase.appspot.com/o/usuario2.png?alt=media&token=0049801b-bbd8-40d2-9c0c-143646fc32f7"
+        (click)="login(2)" >
+       <img class="fotoLogin" src="https://firebasestorage.googleapis.com/v0/b/pps-primeraclase.appspot.com/o/usuario3.png?alt=media&token=c74d7b6b-0cb3-4597-b6d8-ea4a998fa84c"
+        (click)="login(3)" >
+    </div>
+  </form>
+
+  </ion-content>
+</div>
+
