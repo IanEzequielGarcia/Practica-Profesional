@@ -1,10 +1,4 @@
-<!--<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      LOGIN
-    </ion-title>
-  </ion-toolbar>
-</ion-header>-->
+<app-splash *ngIf="cargando" style="width: 100vw;height:100vh;"></app-splash>
 <div *ngIf="!cargando">
   <ion-content [fullscreen]="true">
     <form [formGroup]="loginForm">
