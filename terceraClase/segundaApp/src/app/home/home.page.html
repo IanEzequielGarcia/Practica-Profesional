@@ -1,4 +1,5 @@
 
+  <app-splash-screen *ngIf="cargando" style="width: 100vw;height:100vh;"></app-splash-screen>
 <div *ngIf="!cargando">
   <ion-header>
     <ion-toolbar>
@@ -7,29 +8,28 @@
       </ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content [fullscreen]="true">
-    <div class="imagenes">
-      <img class="fotoLogin" src="assets\loginIconos\catIcon.png"
-      (click)="login(1)" >
-     <img class="fotoLogin" src="assets\loginIconos\dogIcon.png"
-      (click)="login(2)" >
-     <img class="fotoLogin" src="assets\loginIconos\pigIcon.png"
-      (click)="login(3)" >
-    </div>
-    <form [formGroup]="loginForm">
-      <ion-item class="email">
-        <ion-label position="stacked">Email:</ion-label>
-        <ion-input position="stacked" formControlName="email" placeholder="ingrese su correo electronico"></ion-input>
-      </ion-item>
-      <ion-item class="input">
-        <ion-label position="stacked">Contraseña:</ion-label>
-        <ion-input position="stacked" formControlName="contrasena" placeholder="ingrese su contraseña"></ion-input>
-      </ion-item>
-      <ion-button (click)="enviar()">
-        ENVIAR
-      </ion-button>
-  </form>
-
-  </ion-content>
+    <ion-content [fullscreen]="true">
+      <div class="imagenes">
+        <img class="fotoLogin" src="assets\loginIconos\catIcon.png"
+        (click)="login(1)" >
+       <img class="fotoLogin" src="assets\loginIconos\dogIcon.png"
+        (click)="login(2)" >
+       <img class="fotoLogin" src="assets\loginIconos\pigIcon.png"
+        (click)="login(3)" >
+      </div>
+      <form [formGroup]="loginForm">
+        <ion-item class="email">
+          <ion-label position="stacked">Email:</ion-label>
+          <ion-input position="stacked" formControlName="email" placeholder="ingrese su correo electronico"></ion-input>
+        </ion-item>
+        <ion-item class="input">
+          <ion-label position="stacked">Contraseña:</ion-label>
+          <ion-input position="stacked" formControlName="contrasena" placeholder="ingrese su contraseña"></ion-input>
+        </ion-item>
+        <ion-button (click)="enviar()">
+          ENVIAR
+        </ion-button>
+    </form>
+    </ion-content>
 </div>
 

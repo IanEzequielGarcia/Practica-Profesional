@@ -3,18 +3,19 @@ ion-content{
   color: #0a0908;
 }
 ion-item{
-  margin: 40px 100px;
+  margin: 0px auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 80%;
   --background: #b8c0ff;
   color: #0a0908;
-
 }
 ion-button{
-  margin: 10px 100px 0px 0px;
-  width: 76vh;
-  float: right;
+  margin: auto;
+  display: block;
+  width: 80%;
   --background: #e7c6ff;
   color: #0a0908;
-
 }
 .fotoLogin{
   margin: 1em;

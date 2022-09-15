@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
+import { SplashScreenPage } from '../splash-screen/splash-screen.page';
 
 
 @NgModule({
@@ -13,8 +14,8 @@ import { HomePageRoutingModule } from './home-routing.module';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  declarations: [HomePage]
+  declarations: [HomePage,SplashScreenPage]
 })
 export class HomePageModule {}
