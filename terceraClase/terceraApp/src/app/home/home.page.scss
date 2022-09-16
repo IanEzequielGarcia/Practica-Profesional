@@ -1,13 +1,31 @@
 ion-content{
-  --ion-background-color: #7209b7;
+  --ion-background-color: #FF5F00;
 }
 ion-item{
   margin:20px;
-  --background: #f72585;
+  --background: #FFA500;
+  border-radius: 25px;
+}
+.header{
+  padding: 0 12vw;
+  margin-top: 2em;
+  color: white;
+  h3{
+    font-size: 1.1rer;
+  }
 }
 ion-button{
   margin:10px 0px 0px 20px;
-  --background: #3a0ca3;
+  --background: #ff2400;
+}
+ion-img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 20vh;
+  width: 20vh;
+  margin-top: 5vh;
 }
 .fotoLogin{
   margin: 1em;
@@ -16,4 +34,8 @@ ion-button{
 }
 .imagenes{
   text-align: center;
+}
+.form{
+  padding: 0 12vw;
+  margin-top:  70px;
 }

@@ -15,5 +15,8 @@ export class BaseDatosService {
   isLoggedIn() {
     return this.auth.authState;
   }
+  LogOut():Promise<any>{
+    return this.auth.signOut();
+  }
 }
 

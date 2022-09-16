@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SplashScreen } from '@capacitor/splash-screen';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { BaseDatosService } from 'src/servicios/base-datos.service';
 import Swal from 'sweetalert2';
-import { SplashComponent } from '../splash/splash.component';
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit{
-  //cargando=true;
-  cargando=false;
+  cargando=true;
+  //cargando=false;
   loginForm: FormGroup;
-  constructor(public bd:BaseDatosService,private modalController:ModalController,public fb:FormBuilder) {
-    //this.presentSplash();
+  constructor(public bd:BaseDatosService,private modalController:ModalController,public fb:FormBuilder,public navCtrl: NavController) {
+    this.presentSplash();
   }
   ngOnInit(): void {
     this.loginForm= this.fb.group({
@@ -35,6 +33,9 @@ export class HomePage implements OnInit{
             heightAuto:false
           });
         }
+        setTimeout(()=>{
+          this.navCtrl.navigateForward('main');
+        },1000);
       },err=>{
         Swal.fire({
           title: 'USUARIO NO ENCONTRADO!',
@@ -44,11 +45,6 @@ export class HomePage implements OnInit{
       })
   }
   async presentSplash(){
-    const modal= await this.modalController.create({
-      component:SplashComponent,
-      cssClass:'my-customm-class'
-    })
-    modal.present();
     setTimeout(()=>{
       this.cargando=false;
     },2500);

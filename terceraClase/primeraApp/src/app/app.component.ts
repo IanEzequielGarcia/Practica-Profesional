@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { SplashScreen } from '@capacitor/splash-screen';
 
 @Component({
   selector: 'app-root',

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { SplashComponent } from './splash/splash.component';
 import { SplashScreen } from '@capacitor/splash-screen';
 
 @Component({

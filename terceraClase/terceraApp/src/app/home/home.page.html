@@ -1,24 +1,19 @@
-<!--<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      LOGIN
-    </ion-title>
-  </ion-toolbar>
-</ion-header>-->
+<app-splash *ngIf="cargando" style="width: 100vw;height:100vh;"></app-splash>
 <div *ngIf="!cargando">
   <ion-content [fullscreen]="true">
     <div class="header">
       <h3>Bienvenido</h3>
       <h1>Porfavor, Ingrese su correo electronico y contraseña para continuar</h1>
     </div>
-    <form [formGroup]="loginForm">
+    <form [formGroup]="loginForm" class="form">
+    <ion-img src="assets/icon/alarma.png"></ion-img>
       <ion-item class="email">
         <ion-label position="stacked">Correo:</ion-label>
-        <ion-input position="stacked" formControlName="email" placeholder="ingrese su correo electronico"></ion-input>
+        <ion-input position="stacked" formControlName="email" placeholder="ingrese correo electronico"></ion-input>
       </ion-item>
       <ion-item class="input">
         <ion-label position="stacked">Contraseña:</ion-label>
-        <ion-input position="stacked" formControlName="contrasena" placeholder="ingrese su contraseña"></ion-input>
+        <ion-input position="stacked" formControlName="contrasena" placeholder="ingrese contraseña"></ion-input>
       </ion-item>
       <ion-button (click)="enviar()">
         ENVIAR

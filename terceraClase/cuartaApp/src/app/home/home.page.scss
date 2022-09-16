@@ -1,13 +1,50 @@
 ion-content{
-  --ion-background-color: #7209b7;
+  --ion-background-color: #c8b6ff;
+  color: #0a0908;
 }
 ion-item{
-  margin:20px;
-  --background: #f72585;
+  margin: 0px auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 80%;
+  --background: #b8c0ff;
+  color: #0a0908;
+}
+ion-input{
+  --background:#b8c3ff;
+  --padding-start:33px;
+  height: 55px;
+  border-radius: 25px;
+  margin-bottom: 22px;
+}
+.botonEnviar{
+  width: 50vw;
+  background-color: aqua;
+  margin-top: 10vh;
+  padding: 10vw;
+  border-top-right-radius: 10vh;
+  border-bottom-right-radius: 10vh;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  justify-content: flex-end;
+}
+ion-img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 20vh;
+  width: 20vh;
+  margin-top: 5vh;
 }
 ion-button{
-  margin:10px 0px 0px 20px;
-  --background: #3a0ca3;
+  margin: auto;
+  display: block;
+  width: 80%;
+  --background: #e7c6ff;
+  color: #0a0908;
 }
 .fotoLogin{
   margin: 1em;
@@ -15,5 +52,6 @@ ion-button{
   height: 5em;
 }
 .imagenes{
+  margin-top: 50px;
   text-align: center;
 }
