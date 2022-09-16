@@ -10,6 +10,26 @@ ion-item{
   --background: #b8c0ff;
   color: #0a0908;
 }
+ion-input{
+  --background:#b8c3ff;
+  --padding-start:33px;
+  height: 55px;
+  border-radius: 25px;
+  margin-bottom: 22px;
+}
+.botonEnviar{
+  width: 50vw;
+  background-color: aqua;
+  margin-top: 10vh;
+  padding: 10vw;
+  border-top-right-radius: 10vh;
+  border-bottom-right-radius: 10vh;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  justify-content: flex-end;
+}
 ion-button{
   margin: auto;
   display: block;

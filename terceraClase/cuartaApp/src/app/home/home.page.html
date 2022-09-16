@@ -7,13 +7,9 @@
 </ion-header>-->
 <div *ngIf="!cargando">
   <ion-content [fullscreen]="true">
-    <div class="header">
-      <h3>Bienvenido</h3>
-      <h1>Porfavor, Ingrese su correo electronico y contraseña para continuar</h1>
-    </div>
     <form [formGroup]="loginForm">
       <ion-item class="email">
-        <ion-label position="stacked">Correo:</ion-label>
+        <ion-label position="stacked">Email:</ion-label>
         <ion-input position="stacked" formControlName="email" placeholder="ingrese su correo electronico"></ion-input>
       </ion-item>
       <ion-item class="input">
