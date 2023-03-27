@@ -1,0 +1,19 @@
+<ion-content>
+  <ion-item color="light">
+    <ion-select interface="popover" color="medium" placeholder="Elija una opcion" (ionChange)="handleChange($event)"
+      class="select">
+      <ion-select-option value="empleado">Encuesta Empleado</ion-select-option>
+      <ion-select-option value="cliente">Encuesta Cliente</ion-select-option>
+      <ion-select-option value="supervisor">Encuesta Supervisor</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <div *ngIf="encuestaSupervisor">
+    <app-encuesta-supervisor></app-encuesta-supervisor>
+  </div>
+  <div *ngIf="encuestaCliente">
+    <app-encuesta-cliente></app-encuesta-cliente>
+  </div>
+  <div *ngIf="encuestaEmpleado">
+    <app-encuesta-empleado></app-encuesta-empleado>
+  </div>
+</ion-content>

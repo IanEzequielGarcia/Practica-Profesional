@@ -1,0 +1,42 @@
+<ion-content>
+  <img src="../../assets/Spinner.png" style="display: block; position: absolute;margin-top: 30%; z-index: 101;" [ngClass]="{'loading' : this.as.loading}" *ngIf="this.as.loading"/>
+  <div align="center" style="margin-top: 10%;">     
+    <ion-avatar slot="start" style="width: 300px; height: 300px;" *ngIf="this.webPath == ''">
+      <ion-icon name="person-circle-outline" style="width: 300px; height: 300px;" color="dark"></ion-icon>
+    </ion-avatar>  
+    <ion-avatar slot="start" style="width: 300px; height: 300px; margin-top: 10px;" *ngIf="this.webPath != ''">
+      <img [src]="this.webPath"  width="300px" height="300px"/>
+    </ion-avatar>
+  </div>
+  <div style="margin-top: 20%;padding-left: 2%; padding-right: 2%;">
+    <form [formGroup]='form' (ngSubmit)="this.altaCliente()">
+      
+      <div style="padding-left: 3%; padding-right: 3%; font-size: 30px;">
+        <ion-label>Nombre:</ion-label>
+      </div>
+      <ion-item class="items" style="--border-radius: 6px; margin-top: 25px; padding-left: 3%; padding-right: 3%;">       
+        <ion-input color="light" type="email" placeholder="Nombre" formControlName='nombre' name="nombre" required></ion-input>
+      </ion-item>
+      <div align="center" style="margin-bottom: 10%;">
+        <small class="invalid" *ngIf="form.controls.nombre.errors?.required && form.controls.nombre.touched">El nombre es requerido</small>
+        <small class="invalid" *ngIf="form.controls.nombre.errors?.minlength">El nombre debe tener mínimo 2 caracteres</small>
+      </div>
+    </form>
+    <div style="padding-left: 2%; padding-right: 2%; margin-top:5%;">
+      <ion-grid style="display: flex; flex-flow: column;">
+        <ion-row style="flex-grow: 1;">
+          <ion-col style="width: 60%;">
+            <div align="center" style="margin-bottom: 5%;">
+              <ion-button class="boton" fill="clear" expand="block" size="medium" [disabled]='this.form.invalid' style="color: white;" (click)="agregarFoto()">Agregar Foto</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+      <div align="center" style="margin-top: 10%;">       
+        <ion-button fill="clear" expand="block" [disabled]='!fotoSubida' style="border-radius: 5px;  font-weight: bold;background-color: #8D2CE2; border:2px solid #7c04e4 ; color: white;" (click)="altaCliente()">Agregar Cliente</ion-button>
+      </div>
+    </div>   
+  </div>
+  
+</ion-content>

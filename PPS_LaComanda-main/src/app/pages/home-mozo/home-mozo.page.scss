@@ -1,0 +1,31 @@
+ion-content{
+    --background: transparent;
+    background: #8D2CE2;
+    //--overflow: hidden;
+}
+
+.img{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.loading {
+ 
+  animation: rotate 1.5s linear infinite; 
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg)
+  }
+  20% {
+    transform: rotate(25deg)
+  }
+  99% {
+    transform: rotate(360deg)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}

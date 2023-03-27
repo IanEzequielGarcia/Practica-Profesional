@@ -1,0 +1,28 @@
+<ion-content>
+  <ion-fab style="margin:2px;" (click)="irAGraficos()">
+    <ion-fab-button>
+      <ion-icon name="analytics-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-item color="light">
+    <ion-select interface="popover" color="medium" placeholder="Elija una opcion" (ionChange)="handleChange($event)"
+      class="select">
+      <ion-select-option value="dueñoSup">Alta Dueño/Supervisor</ion-select-option>
+      <ion-select-option value="deshabilitar">Habilitar/Deshabilitar Cliente</ion-select-option>
+      <ion-select-option value="empleado">Alta empleado</ion-select-option>
+      <ion-select-option value="encuesta">Encuesta supervisor</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <div *ngIf="opcionDuenio">
+    <app-alta-duenio-sup></app-alta-duenio-sup>
+  </div>
+  <div *ngIf="opcionDeshabilitado">
+    <app-lista-deshabilitados></app-lista-deshabilitados>
+  </div>
+  <div *ngIf="opcionEmpleado">
+    <app-alta-empleado></app-alta-empleado>
+  </div>
+  <div *ngIf="opcionEncuesta">
+    <app-encuesta-supervisor></app-encuesta-supervisor>
+  </div>
+</ion-content>

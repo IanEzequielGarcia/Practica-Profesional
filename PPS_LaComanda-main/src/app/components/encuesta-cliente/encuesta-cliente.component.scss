@@ -1,0 +1,76 @@
+.contGeneral{
+  background-color: #a0dd94;
+  border-radius: 2px;
+  color: black;
+  padding: 10px;
+  margin:5%;
+}
+
+ion-label{
+  color: #000000 !important;  
+}
+
+
+.invalid
+{
+  color: #8D2CE2;
+  font-weight: bold;
+}
+
+ion-content {
+  //--background: linear-gradient(rgba(0, 0, 0, 0.123), rgba(0, 0, 0, 0.185)), url("../../../assets/images/bg-auth.png");
+  --background: rgb(0,0,0);
+  --background: linear-gradient(180deg, rgba(0,0,0,1) 23%, rgba(168,168,168,1) 80%, rgba(198,198,198,1) 100%);
+}
+
+mat-menu{
+  margin-left:auto;
+  margin-right: auto;
+}
+
+.items {
+ 
+  --background: #fffefffd;
+  position: relative;
+}
+
+.boton
+{
+  background: #8D2CE2;
+  border-radius: 5px;
+}
+
+::ng-deep .customize {
+  background: black;
+}
+
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #8D2CE2!important;   /*inner circle color change*/
+}
+
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+ border-color:white!important; /*outer ring color change*/
+}
+
+.loading {
+ 
+    animation: rotate 1.5s linear infinite; 
+    //animation: myAnim 1s ease 0s 1 normal both;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg)
+    }
+    20% {
+      transform: rotate(25deg)
+    }
+    99% {
+      transform: rotate(360deg)
+    }
+    100% {
+      transform: rotate(360deg)
+    }
+  }
+  

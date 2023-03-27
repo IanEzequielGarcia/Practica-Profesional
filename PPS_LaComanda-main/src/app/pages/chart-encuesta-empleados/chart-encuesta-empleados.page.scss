@@ -1,0 +1,25 @@
+ngx-charts-pie-grid {
+    fill: #fff !important; 
+  }
+  ::ng-deep .advanced-pie-legend ::ng-deep .legend-items-container ::ng-deep .legend-items ::ng-deep.legend-item ::ng-deep .item-value {
+    margin-top: 10px !important;
+  }
+  .loading {
+   
+      animation: rotate 1.5s linear infinite; 
+    }
+    
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg)
+      }
+      20% {
+        transform: rotate(25deg)
+      }
+      99% {
+        transform: rotate(360deg)
+      }
+      100% {
+        transform: rotate(360deg)
+      }
+    }

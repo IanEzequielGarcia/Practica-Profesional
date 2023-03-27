@@ -1,0 +1,31 @@
+.flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.textoCurso{
+    display: grid;
+    justify-content: center;
+    margin-top: 1em;
+    font-size: 30px;
+}
+.textoDivision{
+    display: grid;
+    justify-content: center;
+    margin-top: 1em;
+    font-size: 30px;
+}
+ion-img{
+    height: 40vh;
+    margin-top: 2em;
+}
+ion-spinner{
+    width: 100%;
+    margin-top: 1em;
+    height: 20%;
+}
+ion-content {
+    --background: #7209b7;
+  }

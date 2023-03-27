@@ -1,0 +1,48 @@
+ion-content{
+  --ion-background-color: #c8b6ff;
+  color: #0a0908;
+}
+ion-item{
+  margin: 0px auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 80%;
+  --background: #b8c0ff;
+  color: #0a0908;
+}
+ion-input{
+  --background:#b8c3ff;
+  --padding-start:33px;
+  height: 55px;
+  border-radius: 25px;
+  margin-bottom: 22px;
+}
+.botonEnviar{
+  width: 50vw;
+  background-color: aqua;
+  margin-top: 10vh;
+  padding: 10vw;
+  border-top-right-radius: 10vh;
+  border-bottom-right-radius: 10vh;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  justify-content: flex-end;
+}
+ion-button{
+  margin: auto;
+  display: block;
+  width: 80%;
+  --background: #e7c6ff;
+  color: #0a0908;
+}
+.fotoLogin{
+  margin: 1em;
+  width: 5em;
+  height: 5em;
+}
+.imagenes{
+  margin-top: 50px;
+  text-align: center;
+}

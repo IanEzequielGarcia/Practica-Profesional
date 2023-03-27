@@ -1,0 +1,94 @@
+
+<ion-content>
+  <img src="../../assets/Spinner.png" style="display: block; position: absolute;margin-top: 50%; z-index: 101;" [ngClass]="{'loading' : this.loading || this.as.loading}" *ngIf="this.loading || this.as.loading"/> 
+  <ion-fab style="margin:2px;" horizontal="start" vertical="bottom" >
+    <ion-fab-button color="warning">
+      <ion-icon name="chevron-up-circle-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top" >
+      <ion-fab-button (click)="mostrarOcultarEncuesta()" color="success">
+        <ion-icon name="happy-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="irAGraficos()">
+        <ion-icon name="analytics-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+    
+  </ion-fab>
+  <div *ngIf="encuesta">
+    <app-encuesta-empleado></app-encuesta-empleado>
+  </div>
+  
+  <div style="padding-left: 2%; padding-right: 2%;" *ngIf="!encuesta">
+    
+    <ion-card>
+      <ion-card-header align="center">
+          <ion-card-title style="font-size: 26px;font-weight: bold;color:azure;">Menu Bartender</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  
+    <!--Recorro todos los Pedidos En Preparacion-->   
+    <ion-card *ngFor="let item of this.pedidosEnPreparacionArray; let i = index" data-index="i">
+      <ion-card-header>
+          <ion-card-subtitle style="font-size: 19px;"><u style="font-weight: bold;color:azure;">Pedido del Cliente</u> : {{item.usuario.nombre}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+
+        <ion-row style="width: 100%;font-size: 17px;color:azure">
+          <ion-col style="text-align:left;">
+            PRODUCTOS
+          </ion-col>
+          <ion-col style="text-align:right">
+            Cantidad
+          </ion-col>
+        </ion-row>
+
+        <ion-row offset="1" size=10>
+          <div style="width: 100%; height: 1px; background-color: azure;" ></div>
+        </ion-row>
+
+        <ion-label *ngFor="let itemP of item.productos; let ip = index" data-index="ip">   
+          <ion-row *ngIf="itemP.tipo == 'bar'" style="flex-grow: 1;font-size: 17px">               
+              <ion-col style="text-align:left">              
+                <!--Muestro los Productos-->                      
+                      {{itemP.descripcion}} - ({{itemP.nombre}})
+              </ion-col>  
+              <ion-col style="text-align:right">
+                  {{itemP.cantidad}} 
+              </ion-col>                              
+          </ion-row>            
+      </ion-label>         
+
+        <ion-row offset="1" size=10>
+          <div style="width: 100%; height: 2px; background-color: azure;" ></div>
+        </ion-row>
+
+        
+        <ion-row style="font-size: 16px;">
+          <ion-col>
+            <ion-button style="--background: #8D2CE2;font-size: 17px;" (click)="onPedidolisto(item)">
+              Finalizar Pedido
+            </ion-button>    
+          </ion-col>
+          <ion-col style="text-align:left">             
+            <ion-row>
+              <u>Estado Pedido</u>
+            </ion-row>
+            <ion-row>
+              <a style="font-size: 17px;color: azure;">{{item.estado}} </a>
+            </ion-row> 
+          </ion-col>            
+        </ion-row>
+
+      </ion-card-content>     
+    </ion-card>
+
+  </div>
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="danger" (click)="this.as.logout()">
+      <ion-icon name="log-out-outline"></ion-icon>           
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

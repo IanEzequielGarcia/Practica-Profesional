@@ -1,0 +1,47 @@
+.invalid
+{
+  color: #8D2CE2;
+  font-weight: bold;
+}
+
+ion-content {
+  //--background: linear-gradient(rgba(0, 0, 0, 0.123), rgba(0, 0, 0, 0.185)), url("../../../assets/images/bg-auth.png");
+  --background:#a0dd94;
+}
+
+.items {
+ 
+  --background: #fffefffd;
+  position: relative;
+}
+
+.boton
+{
+    background: #FD841F;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid #f87205;
+    padding: 8px;
+}
+
+
+.loading {
+ 
+  animation: rotate 1.5s linear infinite; 
+  //animation: myAnim 1s ease 0s 1 normal both;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg)
+  }
+  20% {
+    transform: rotate(25deg)
+  }
+  99% {
+    transform: rotate(360deg)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}

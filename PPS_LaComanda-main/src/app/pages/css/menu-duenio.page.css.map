@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EACR,sBAAsB,CAAA,QAAC;EACvB,QAAQ,EAAE,MAAM;CACnB;;AAED,AAAA,QAAQ,CAAA;EACJ,KAAK,EAAE,GAAG;EACV,WAAW,EAAC,IAAI;EAChB,YAAY,EAAC,IAAI;EACjB,UAAU,EAAC,GAAG;EACd,UAAU,EAAE,eAAe;CAC9B;;AAED,AAAA,OAAO,CAAA;EACH,WAAW,EAAE,IAAI;EACjB,YAAY,EAAE,IAAI;CACrB",
+    "sources": [
+        "../menu-duenio/menu-duenio.page.scss"
+    ],
+    "names": [],
+    "file": "menu-duenio.page.css"
+}

@@ -1,0 +1,65 @@
+.invalid {
+  color: #8D2CE2;
+  font-weight: bold;
+}
+
+ion-content {
+  --background:#a0dd94;
+}
+
+.items {
+  --background: #fffefffd;
+  position: relative;
+}
+
+.boton {
+  background: #FD841F;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 2px solid #f87205;
+  padding: 8px;
+}
+
+.loading {
+  -webkit-animation: rotate 1.5s linear infinite;
+          animation: rotate 1.5s linear infinite;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  20% {
+    -webkit-transform: rotate(25deg);
+            transform: rotate(25deg);
+  }
+  99% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  20% {
+    -webkit-transform: rotate(25deg);
+            transform: rotate(25deg);
+  }
+  99% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=alta-anonimo.page.css.map */

@@ -1,0 +1,34 @@
+.cuenta{
+    --ion-background-color:#FD841F;
+    height: 100vh !important;
+    //--background: url("../../../assets/hoja.jpg") repeat 100%;
+}
+
+.bottomSizeScaneo{
+    height: 133px;
+}
+
+.bottomSizeNoScaneo{
+    height: 99px;
+}
+
+.loading {
+ 
+    animation: rotate 1.5s linear infinite; 
+    //animation: myAnim 1s ease 0s 1 normal both;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg)
+    }
+    20% {
+      transform: rotate(25deg)
+    }
+    99% {
+      transform: rotate(360deg)
+    }
+    100% {
+      transform: rotate(360deg)
+    }
+  }

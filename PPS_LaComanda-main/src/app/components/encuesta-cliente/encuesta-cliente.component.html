@@ -1,0 +1,114 @@
+<div class="contGeneral">
+  <img src="../../assets/Spinner.png" style="display: block; position: absolute;margin-top: 50%; z-index: 101;"
+    [ngClass]="{'loading' : this.as.loading}" *ngIf="this.as.loading" />
+  <div style="margin-top: 5%; padding-left: 1%; padding-right: 1%;" align="center">
+
+
+    <div style=" margin-top: 5%;">
+      <div align="start" style="margin-top: 5%; padding-left: 1%; padding-right: 1%;">
+        <ion-label color="dark" style="font-size: 20px;">
+          ¿Qué tan conforme esta con el servicio brindado?
+        </ion-label>
+      </div>
+      <ion-range min="0" max="10" pin color="danger" (ionChange)="capturarRespuesta($event)">
+        <ion-icon slot="end" name="happy" style="font-size: 30px;"></ion-icon>
+        <ion-icon slot="start" name="sad" style="font-size: 30px;"></ion-icon>
+      </ion-range>
+    </div>
+
+
+    <div style="margin-top: 4%;">
+      <div align="start" style="margin-bottom: 5%; padding-left: 1%; padding-right: 1%;">
+        <ion-label color="dark" style="font-size: 20px;">Recomendaría el restobar a algún conocido?
+        </ion-label>
+      </div>
+      <ion-item class="items" style="--border-radius: 6px; margin-top: 15px; padding-left: 2%; padding-right: 2%;">
+        <ion-input color="light" placeholder="Si/No" [(ngModel)]="respuestaAutoCompletada"
+          (ngModelChange)="autoCompletar()"></ion-input>
+      </ion-item>
+    </div>
+
+
+    <div style="margin-top: 8%;">
+      <div align="start" style="margin-bottom: 2%; padding-left: 1%; padding-right: 1%;">
+        <ion-label color="dark" style="font-size: 20px; text-align: justify;">Cuál es su opinión respecto a la calidad
+          de la comida?
+        </ion-label>
+      </div>
+      <div align="start">
+        <ion-grid style="display: flex; flex-flow: column;">
+          <mat-radio-group aria-label="Select an option" style="margin-left: 1%; margin-bottom: 5%;"
+            [(ngModel)]="respuestaRadio2">
+            <ion-row style="flex-grow: 1;">
+              <ion-col>
+                <mat-radio-button style="margin-right: 15px;" (click)="respuestaRadioButton(1)">Mala</mat-radio-button>
+              </ion-col>
+              <ion-col>
+                <mat-radio-button style="margin-right: 15px;" (click)="respuestaRadioButton(2)">Regular
+                </mat-radio-button>
+              </ion-col>
+              <ion-col>
+                <mat-radio-button class="customize2" (click)="respuestaRadioButton(3)">Buena</mat-radio-button>
+              </ion-col>
+            </ion-row>
+          </mat-radio-group>
+        </ion-grid>
+
+      </div>
+    </div>
+
+
+    <div style="margin-top: 5%; padding-left: 1%; padding-right: 1%;">
+      <div align="start" style=" margin-bottom: 5%;">
+        <ion-label color="dark" style="font-size: 20px;">Se encontraba el establecimiento en óptimas condiciones?
+        </ion-label>
+      </div>
+      <ion-grid style="display: flex; flex-flow: column;">
+        <ion-row style="flex-grow: 1;">
+          <ion-col>
+            <mat-checkbox color="accent" [checked]="siCheckBox" (change)="onChangeSi($event)" style="font-size: 20px;">
+              Si</mat-checkbox>
+          </ion-col>
+          <ion-col>
+            <mat-checkbox color="accent" [checked]="noCheckBox" (change)="onChangeNo($event)" style="font-size: 20px;">
+              No</mat-checkbox>
+          </ion-col>
+          <ion-col>
+            <mat-checkbox color="accent" [checked]="momCheckBox" (change)="onChangeMoM($event)"
+              style="font-size: 20px;">Más o menos</mat-checkbox>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div style="padding-left: 1%; padding-right: 1%; margin-top: 2%; width: 100%;">
+      <div align="start" style="margin-bottom: 2%;">
+        <ion-label color="dark" style="font-size: 20px;">Asistiria nuevamente en otra ocasión?
+        </ion-label>
+      </div>
+      <div style="width: 50%;">
+        <ion-grid style="display: flex; flex-flow: column;">
+          <ion-row style="flex-grow: 1;">
+            <ion-col style="width: 100%;">
+              <div align="center">
+                <ion-button size="medium" mat-button [matMenuTriggerFor]="empleado"
+                  style=" width: 100%; border-radius: 5px;" color="light">{{respuestaMenu}}</ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <mat-menu #empleado="matMenu" class="customize">
+        <button class="select" mat-menu-item style="color: white;" (click)="cargarRespuesta(1)">Si</button>
+        <button class="select" mat-menu-item style="color: white;" (click)="cargarRespuesta(2)">No</button>
+        <button class="select" mat-menu-item style="color: white;" (click)="cargarRespuesta(3)">Tal vez</button>
+      </mat-menu>
+    </div>
+
+    <div align="center" style="margin-top: 3%; padding-left: 2%; padding-right: 2%">
+      <ion-button fill="clear" expand="block" [disabled]="!this.posibleAgregar"
+        style="border-radius: 5px; background-color: #8D2CE2; color: white;" (click)="enviarEncuesta()">Enviar encuesta
+      </ion-button>
+    </div>
+  </div>
+</div>

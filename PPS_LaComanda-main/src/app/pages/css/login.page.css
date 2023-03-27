@@ -1,0 +1,74 @@
+.invalid {
+  color: red;
+  font-weight: bold;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+ion-content {
+  --background: transparent !important;
+  background-image: url("../../../assets/img/pollo.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-attachment: fixed;
+  --overflow: hidden;
+}
+
+.items {
+  --background: #fffefffd;
+  position: relative;
+}
+
+.boton {
+  background: #FD841F;
+}
+
+::ng-deep .customize {
+  background: #FD841F;
+}
+
+.loading {
+  -webkit-animation: rotate 1.5s linear infinite;
+          animation: rotate 1.5s linear infinite;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  20% {
+    -webkit-transform: rotate(25deg);
+            transform: rotate(25deg);
+  }
+  99% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  20% {
+    -webkit-transform: rotate(25deg);
+            transform: rotate(25deg);
+  }
+  99% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=login.page.css.map */

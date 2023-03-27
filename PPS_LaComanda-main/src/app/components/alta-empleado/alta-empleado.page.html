@@ -1,0 +1,149 @@
+<img src="../../assets/Spinner.png" style="display: block; position: absolute;margin-top: 50%; z-index: 101;"
+  [ngClass]="{'loading' : this.as.loading}" *ngIf="this.as.loading" />
+<div class="contenedorGeneral" style="margin-top: 5%; padding-left: 2%; padding-right: 2%;">
+  <form [formGroup]='form'>
+    <!-- (ngSubmit)="this.agregarCliente()" -->
+
+    <div align="start" style="margin-left: 5%; margin-top: 5%;">
+      <ion-label color="dark" style="font-size: 15px;">Correo</ion-label>
+    </div>
+    <ion-item class="items" style="--border-radius: 6px; margin-top: 15px; padding-left: 3%; padding-right: 3%;">
+      <ion-input color="light" type="email" placeholder="Correo" formControlName='email' name="email" required>
+      </ion-input>
+    </ion-item>
+    <div align="center" style="margin-bottom: 5%;">
+      <small class="invalid" *ngIf="form.controls.email.errors?.required && form.controls.email.touched">El correo es
+        requerido</small>
+      <small class="invalid" *ngIf="form.controls.email.errors?.minlength">El correo es invalido</small>
+    </div>
+
+    <div align="start" style="margin-left: 5%; margin-top: 5%;">
+      <ion-label color="dark" style="font-size: 15px;">Contraseña</ion-label>
+    </div>
+    <ion-item class="items" style="--border-radius: 6px; margin-top: 15px; padding-left: 3%; padding-right: 3%;">
+      <ion-input color="light" type="password" placeholder="Contraseña" formControlName='password' name="password"
+        required></ion-input>
+    </ion-item>
+    <div align="center" style="margin-bottom: 5%;">
+      <small class="invalid" *ngIf="form.controls.password.errors?.required && form.controls.password.touched">La
+        contraseña es requerido</small>
+      <small class="invalid" *ngIf="form.controls.password.errors?.minlength">La contraseña es invalido</small>
+    </div>
+
+    <div align="start" style="margin-left: 5%; margin-top: 5%;">
+      <ion-label color="dark" style="font-size: 15px;">Nombre</ion-label>
+    </div>
+    <ion-item class="items" style="--border-radius: 6px; margin-top: 15px; padding-left: 3%; padding-right: 3%;">
+      <ion-input color="light" type="email" placeholder="Nombre" formControlName='nombre' name="nombre" required>
+      </ion-input>
+    </ion-item>
+    <div align="center" style="margin-bottom: 5%;">
+      <small class="invalid" *ngIf="form.controls.nombre.errors?.required && form.controls.nombre.touched">El nombre es
+        requerido</small>
+      <small class="invalid" *ngIf="form.controls.nombre.errors?.minlength">El nombre debe tener mínimo 2
+        caracteres</small>
+    </div>
+    <div align="start" style="margin-left: 5%; margin-bottom: 5%;">
+      <ion-label color="dark" style="font-size: 15px;">Apellido/s</ion-label>
+    </div>
+    <ion-item class="items" style="--border-radius: 6px; margin-top: 15px; padding-left: 3%; padding-right: 3%;">
+      <ion-input color="light" placeholder="Apellido/s" formControlName='apellido' name="apellido" required></ion-input>
+    </ion-item>
+    <div align="center" style="margin-bottom: 5%;">
+      <small class="invalid" *ngIf="form.controls.apellido.errors?.minlength">El apellido debe tener mínimo 2
+        caracteres</small>
+      <small class="invalid" *ngIf="form.controls.apellido.errors?.required && form.controls.apellido.touched">El
+        apellido es requerido</small>
+    </div>
+
+    <div align="start" style="margin-left: 5%; margin-bottom: 5%;">
+      <ion-label color="dark" style="font-size: 15px;">DNI</ion-label>
+    </div>
+    <ion-item class="items" style="--border-radius: 6px; margin-top: 15px; padding-left: 3%; padding-right: 3%;">
+      <ion-input color="light" placeholder="DNI" formControlName='dni' name="dni" required></ion-input>
+    </ion-item>
+    <div align="center" style="margin-bottom: 5%;">
+      <small class="invalid" *ngIf="form.controls.dni.errors?.minlength || form.controls.dni.errors?.maxlength">El dni
+        debe tener 8 caracteres</small>
+      <small class="invalid" *ngIf="form.controls.dni.errors?.required && form.controls.dni.touched">El dni es
+        requerido</small>
+    </div>
+
+    <div align="start" style="margin-left: 5%; margin-bottom: 5%;">
+      <ion-label color="dark" style="font-size: 15px;">CUIL</ion-label>
+    </div>
+    <ion-item class="items" style="--border-radius: 6px; margin-top: 15px; padding-left: 3%; padding-right: 3%;">
+      <ion-input color="light" placeholder="CUIL" formControlName='cuil' name="cuil" required></ion-input>
+    </ion-item>
+    <div align="center" style="margin-bottom: 5%;">
+      <small class="invalid" *ngIf="form.controls.cuil.errors?.minlength || form.controls.cuil.errors?.maxlength">El
+        cuil debe tener 11 caracteres</small>
+      <small class="invalid" *ngIf="form.controls.cuil.errors?.required && form.controls.cuil.touched">El cuil es
+        requerido</small>
+    </div>
+    <ion-grid style="display: flex; flex-flow: column;">
+      <ion-row style="flex-grow: 1;">
+        <ion-col style="width: 50%;">
+          <div align="start">
+            <mat-slide-toggle class="ionButton" color="primary" [checked]="slideMetre" (change)="onChangeMetre($event)">
+              Metre</mat-slide-toggle>
+          </div>
+        </ion-col>
+        <ion-col style="width: 50%;">
+          <div align="start">
+            <mat-slide-toggle class="ionButton" color="primary" [checked]="slideMozo" (change)="onChangeMozo($event)">
+              Mozo</mat-slide-toggle>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row style="flex-grow: 1;">
+        <ion-col style="width: 50%;">
+          <div align="start">
+            <mat-slide-toggle class="ionButton" color="primary" [checked]="slideCocinero"
+              (change)="onChangeCocinero($event)">Cocinero</mat-slide-toggle>
+          </div>
+        </ion-col>
+        <ion-col style="width: 50%;">
+          <div align="start">
+            <mat-slide-toggle class="ionButton" color="primary" [checked]="slideBartender"
+              (change)="onChangeBartender($event)">Bartender</mat-slide-toggle>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  <div style="padding-left: 2%; padding-right: 2%; margin-top: 1%;">
+    <ion-grid style="display: flex; flex-flow: column;">
+      <ion-row style="flex-grow: 1;">
+        <ion-col style="width: 60%;">
+          <div align="center" style="margin-bottom: 3%;">
+            <ion-button class="boton" fill="clear" expand="block" size="medium"
+              [disabled]='this.form.invalid || this.perfil == "" ' style="color: white;" (click)="agregarFoto()">Agregar
+              Foto</ion-button>
+          </div>
+        </ion-col>
+        <ion-col style=" width: 40%;">
+          <div align="center" style="margin-bottom: 3%;">
+            <ion-button class="boton" fill="clear" expand="block" style="color: white;" (click)="leerDNI()">Escanear DNI
+            </ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div align="center" style="margin-top: 2%;">
+      <ion-button fill="clear" expand="block" [disabled]='!fotoSubida'
+        style="border-radius: 5px; background-color: #1eb101; color: white;" (click)="altaEmpleado()">Agregar
+      </ion-button>
+    </div>
+
+    <div align="center">
+      <ion-avatar slot="start" style="width: 150px; height: 150px;" *ngIf="this.webPath == ''">
+        <ion-icon name="person-circle-outline" style="width: 150px; height: 150px;" color="light"></ion-icon>
+      </ion-avatar>
+      <ion-avatar slot="start" style="width: 130px; height: 130px; margin-top: 10px;" *ngIf="this.webPath != ''">
+        <img [src]="this.webPath" width="130px" height="130px" />
+      </ion-avatar>
+    </div>
+  </div>
+</div>

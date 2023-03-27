@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "233815773210",
+    "project_id": "pps-lacomanda",
+    "storage_bucket": "pps-lacomanda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:233815773210:android:dc7b7ce9a51bebd52681a3",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "233815773210-u5mpj6uec242gk5p2tgf8r7vv1a07pjm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHG5qdURusQxzIyKaS9D6qq06M39uzLWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "233815773210-u5mpj6uec242gk5p2tgf8r7vv1a07pjm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

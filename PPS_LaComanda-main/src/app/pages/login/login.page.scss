@@ -1,0 +1,56 @@
+.invalid {
+  color: red;
+  font-weight: bold;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+ion-content {
+  --background: transparent !important;
+
+  background-image: url('../../../assets/img/pollo.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-attachment: fixed;
+
+  --overflow: hidden;
+}
+
+.items {
+
+  --background: #fffefffd;
+  position: relative;
+}
+
+.boton {
+  background: #FD841F;
+}
+
+::ng-deep .customize {
+  background: #FD841F;
+}
+
+.loading {
+
+  animation: rotate 1.5s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  20% {
+    transform: rotate(25deg)
+  }
+
+  99% {
+    transform: rotate(360deg)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}

@@ -1,0 +1,152 @@
+<ion-content>
+  <img src="../../assets/Spinner.png" style="display: block; position: absolute;margin-top: 50%; z-index: 101;" 
+  [ngClass]="{'loading' : this.loading}" *ngIf="this.loading || this.as.loading"/> 
+  <div style="width: 100%;">
+      <ion-row style="width: 100%;background-color: #8E2CE3;font-weight: bold;">
+        <ion-col>
+          <div style="height: 260px ;width: 100%;margin-left: 5px;">
+            <h2>¿Qué tan conforme esta con el servicio brindado?</h2>
+            <ngx-charts-advanced-pie-chart 
+              scheme="cool"
+              [results]="preguntas1"
+              [gradient]="gradientChartAdvanced"
+              label="Total Respuestas"
+              [tooltipDisabled]="tooltipDisabledChartAdvanced"
+              >
+            </ngx-charts-advanced-pie-chart>
+          </div>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row offset="1" size=10>
+        <div style="width: 100%; height: 2px; background-color: azure;" ></div>
+      </ion-row>
+
+      <ion-row style="width: 100%;background-color: #33539E;font-weight: bold;">
+        <ion-col>
+          <div style="height: 340px ;width: 100%;margin-left: 5px;">
+          <h2>¿Recomendaría el restobar a algún conocido?</h2>       
+          <ngx-charts-pie-grid style="font-weight: bold;"
+              scheme="cool"
+              [results]="preguntas2"
+            >
+            </ngx-charts-pie-grid>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row offset="1" size=10>
+        <div style="width: 100%; height: 2px; background-color: azure;" ></div>
+      </ion-row>
+
+      <ion-row style="width: 100%;background-color: #DF7E59;font-weight: bold;color: white;">
+        <ion-col style="color: white;">
+          <div style="height: 260px ;width: 100%;margin-left: 5px;">
+            <!-- <ngx-charts-advanced-pie-chart
+              scheme="cool"
+              [results]="preguntas3"
+              [gradient]="gradient"
+              label="¿Cuál es su opinión respecto a la calidad de la comida?"
+              [tooltipDisabled]="tooltipDisabled"
+              >
+            </ngx-charts-advanced-pie-chart> -->
+          
+            <h2>¿Cuál es su opinión respecto a la calidad de la comida?</h2>
+            <ngx-charts-bar-horizontal style="color: white;"
+              scheme="cool"
+              [results]="preguntas3"
+              [gradient]="gradientChartBarHorizontal"
+              [xAxis]="showXAxisChartBarHorizontal"
+              [yAxis]="showYAxisChartBarHorizontal"
+              [legend]="showLegendChartBarHorizontal"
+              [showXAxisLabel]="showXAxisLabelChartBarHorizontal"
+              [showYAxisLabel]="showYAxisLabelChartBarHorizontal"
+              [xAxisLabel]="xAxisLabelChartBarHorizontal"
+              [yAxisLabel]="yAxisLabelChartBarHorizontal"
+              [showDataLabel]="showDataLabelChartBarHorizontal"
+              >
+            </ngx-charts-bar-horizontal>
+          </div>          
+        </ion-col>
+      </ion-row>
+
+      <ion-row offset="1" size=10>
+        <div style="width: 100%; height: 3px; background-color: azure;" ></div>
+      </ion-row>
+      
+      <ion-row style="width: 100%;background-color: #12C489;font-weight: bold;">
+        <ion-col>
+          <div style="height: 260px ;width: 100%;margin-left: 5px;">
+            <!-- <ngx-charts-advanced-pie-chart
+              scheme="cool"
+              [results]="preguntas4"
+              [gradient]="gradient"
+              label="¿Se encontraba el establecimiento en óptimas condiciones?"
+              [tooltipDisabled]="tooltipDisabled"
+              >
+            </ngx-charts-advanced-pie-chart> -->
+            <h2>¿Se encontraba el establecimiento en óptimas condiciones?</h2>
+            <ngx-charts-bar-vertical
+              scheme="cool"
+              [results]="preguntas4"
+              [gradient]="gradientChartBarVertical"
+              [xAxis]="showXAxisChartBarVertical"
+              [yAxis]="showYAxisChartBarVertical"
+              [legend]="showLegendChartBarVertical"
+              [showXAxisLabel]="showXAxisLabelChartBarVertical"
+              [showYAxisLabel]="showYAxisLabelChartBarVertical"
+              [xAxisLabel]="xAxisLabelChartBarVertical"
+              [yAxisLabel]="yAxisLabelChartBarVertical"
+              >
+            </ngx-charts-bar-vertical>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row offset="1" size=10>
+        <div style="width: 100%; height: 2px; background-color: azure;" ></div>
+      </ion-row>
+      
+      <ion-row style="width: 100%;background-color: #8E2CE3;font-weight: bold;">
+        <ion-col style="padding-bottom: 50px;">
+          <div style="height: 260px ;width: 100%;margin-left: 5px;">
+            <!-- <ngx-charts-advanced-pie-chart
+              scheme="cool"
+              [results]="preguntas5"
+              [gradient]="gradient"
+              label="¿Asistiria nuevamente en otra ocasión?"
+              [tooltipDisabled]="tooltipDisabled"
+              >
+            </ngx-charts-advanced-pie-chart> -->
+
+            <!-- <ngx-charts-line-chart
+              scheme="cool"
+              [legend]="legend"
+              [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel"
+              [xAxis]="xAxis"
+              [yAxis]="yAxis"
+              [xAxisLabel]="xAxisLabel"
+              [yAxisLabel]="yAxisLabel"
+              [timeline]="timeline"
+              [results]="preguntas5"              
+              >
+            </ngx-charts-line-chart> -->
+
+            <h2>¿Asistiria nuevamente en otra ocasión?</h2>
+            <ngx-charts-pie-chart
+              scheme="cool"
+              [results]="preguntas5"
+              [gradient]="gradient"
+              [legend]="showLegend"
+              [legendPosition]="legendPosition"
+              [labels]="showLabels"
+              [doughnut]="isDoughnut"
+              legendTitle="Preguntas"
+              >
+            </ngx-charts-pie-chart>
+          </div>
+        </ion-col>
+      </ion-row>      
+  </div>
+</ion-content>

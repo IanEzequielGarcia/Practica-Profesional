@@ -1,0 +1,45 @@
+.fondo{
+    //--background: transparent !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: #a0dd94;
+    height: 100%;
+}
+
+ion-toolbar {
+    --background: #FD841F;
+    --color: white;
+  
+    --border-color: #a85deb;
+    --border-width: 5px 0;
+    --border-style: solid;
+  
+    --min-height: 80px;
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+  }
+
+.img{
+    width: 100px;
+    height: 100px;
+}
+
+.loading {
+    animation: rotate 1.5s linear infinite; 
+    //animation: myAnim 1s ease 0s 1 normal both;
+}
+  
+@keyframes rotate {
+0% {
+    transform: rotate(0deg)
+}
+20% {
+    transform: rotate(25deg)
+}
+99% {
+    transform: rotate(360deg)
+}
+100% {
+    transform: rotate(360deg)
+}
+}

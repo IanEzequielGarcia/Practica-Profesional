@@ -1,0 +1,64 @@
+<ion-content>
+  <div class="container" style="width: 100%;">
+    <div class="chat-window" id="chat_window_1" style="margin-left:10px;">
+      
+      <div style="height: 50%; width: 100%; margin-bottom: 35%;">
+        
+        <div class="" style="width: 50%;" align="center">
+        </div>
+        
+        <div *ngFor="let item of mensajes | async">
+          <div align="end" style="margin-bottom: 10px;" *ngIf='this.as.loggedUser.nombre == item.user'>
+
+            <ion-row style="height: 30%; flex-grow: 1; position: right;">
+              <div style="width: 35%;">
+              </div>
+              <div style="width: 65%;">
+                <div class="messages msg_sent" align="start">
+                  <p style="font-size: 16px;">{{item.message}}</p>
+                  <time style="color: white;font-size: 14px;">{{item.date}}</time>
+                </div>
+              </div>
+            </ion-row>
+            
+          </div>
+
+          <div align="start" style="margin-bottom: 10px;" *ngIf='item.receptor == this.as.loggedUser.nombre'>
+
+            <ion-row style="height: 30%; flex-grow: 1; position: left;">
+
+              <div style="width: 65%;">
+
+                <div class="messages msg_receive">
+                  <h6 style="font-size: 18px;">{{item.user}}</h6>
+                  <p style="font-size: 16px;">{{item.message}}</p>
+                  <time style="color: white;font-size: 14px;">{{item.date}}</time>
+                </div>
+
+              </div>
+
+              <div style="width: 35%;">
+
+              </div>
+            </ion-row>
+          </div>
+
+        </div>
+      </div>
+
+      <ion-row
+        style="height: 10%; flex-grow: 1; background-color: transparent;bottom:0; width: 100%; position: fixed;">
+        <div class="message-box">
+          <textarea type="text" class="message-input" [(ngModel)]="mensajeEnviar"
+            placeholder="Escribe un mensaje aquí"></textarea>
+          <button class="message-submit">
+            <ion-icon name="send" style="font-size: 24px;color: #8D2CE2;padding-bottom: 5px;" (click)="sendMessage()">
+            </ion-icon>
+          </button>
+        </div>
+      </ion-row>
+
+    </div>
+
+  </div>
+</ion-content>

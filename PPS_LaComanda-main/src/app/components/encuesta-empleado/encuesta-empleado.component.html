@@ -1,0 +1,219 @@
+  <img src="../../assets/Spinner.png" style="display: block; position: absolute;margin-top: 50%; z-index: 101;" [ngClass]="{'loading' : this.as.loading}" *ngIf="this.as.loading"/>
+  <ion-progress-bar color="success" [value]="progreso"></ion-progress-bar>
+  <div class="contTitulo">
+    <label>Encuesta Empleado</label>
+  </div>
+  <div style="width: 100%;height: 100%;text-align: center;">
+    
+    <ion-grid style="height: auto;width: 100%; flex-flow: column;" >
+
+      <ion-row style="flex-grow: 1;">
+        <ion-col>
+          <!--PREGUNTA 1-->
+          <div class="pregunta1" *ngIf="pregunta_1">
+            <ion-row style="flex-grow: 1;">
+              <ion-col>
+                <ion-card>
+                  <div align="center" style="padding-top: 10px;">
+                    <img src="../../../assets/Encuesta_Empleados/Pregunta_1.jpg"/>
+                  </div>      
+                  <ion-card-header>
+                    <ion-card-title style="color: rgb(157, 156, 156);"><u>Pregunta:</u></ion-card-title>              
+                  </ion-card-header>
+                  <ion-card-content>
+                    <label style="font-size: 18px;color: white;">¿Cuan ordenado recibio/dejo el establecimiento? (1 - 10)</label>
+                    <!--(range, input, radio, check, select).-->  
+                    <ion-range (respuesta1)="funCapRespuesta1($event)"> 
+                                min="1" 
+                                max="10" 
+                                pin color="violeta" style="color: #8D2CE2;">
+                      <ion-icon slot="start" size="small" name="star-outline"></ion-icon>         
+                      <ion-icon slot="end" name="star"></ion-icon>
+                    </ion-range>             
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+            </ion-row>  
+          </div>
+          <!--PREGUNTA 2-->
+          <div class="pregunta2" *ngIf="pregunta_2">
+            <ion-row style="flex-grow: 1;">
+              <ion-col>
+                <ion-card>
+                  <div align="center" style="padding-top: 10px;">
+                    <img src="../../../assets/Encuesta_Empleados/Pregunta_2.jpg" />
+                  </div> 
+            
+                  <ion-card-header>
+                    <ion-card-title style="color: rgb(157, 156, 156);"><u>Pregunta:</u></ion-card-title>              
+                  </ion-card-header>
+            
+                  <ion-card-content>
+                    <label style="font-size: 18px;color: white;">¿La cocina posee todos los utencillos necesarios?</label>
+                    <!--(range, input, radio, check, select).-->     
+                    <ion-item class="items" style="--border-radius: 6px; margin-top: 15px; padding-left: 3%; padding-right: 3%;">   
+                      <ion-input (respuesta2)="funCapRespuesta2($event)" color="light" placeholder="Si/No"  name="si_no" required></ion-input>
+                    </ion-item>      
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+            </ion-row>
+          </div>
+          <!--PREGUNTA 3-->
+          <div class="pregunta3" *ngIf="pregunta_3">
+            <ion-row style="flex-grow: 1;">
+              <ion-col>
+                <ion-card>
+            
+                  <div align="center" style="padding-top: 10px;">
+                    <img src="../../../assets/Encuesta_Empleados/Pregunta_3.jpg" />
+                  </div> 
+            
+                  <ion-card-header>
+                    <ion-card-title style="color: rgb(157, 156, 156);"><u>Pregunta:</u></ion-card-title>              
+                  </ion-card-header>
+            
+                  <ion-card-content>
+                    <label style="font-size: 18px;color: white;">¿Dejo/recibio limpio el restobar?</label>
+                    <!--(range, input, radio, check, select).-->     
+                    <div style="font-size: 18px;">
+                      <mat-radio-group aria-label="Select an option" style="margin-left: 5%; margin-bottom: 5%;" (change)="funCapRespuesta3($event)">
+                        
+                        <ion-grid style="height: auto;width: 100%; flex-flow: column;" >
+            
+                          <ion-row style="flex-grow: 1;">
+                            <ion-col>    
+                              <mat-radio-button value="1" style="margin-right: 15px;"color="accent">Si</mat-radio-button>
+                            </ion-col>
+                          </ion-row>
+            
+                          <ion-row style="flex-grow: 1;">
+                            <ion-col>    
+                              <mat-radio-button value="2" style="margin-right: 15px;"color="accent">No</mat-radio-button>
+                            </ion-col>
+                          </ion-row>
+            
+                          <ion-row style="flex-grow: 1;">
+                            <ion-col>    
+                              <mat-radio-button value="3" color="accent">Mas o menos</mat-radio-button>
+                            </ion-col>
+                          </ion-row>
+                          
+                        </ion-grid>
+            
+                      </mat-radio-group>  
+                    </div>
+                         
+                  </ion-card-content> 
+                </ion-card>
+              </ion-col>
+            </ion-row>
+          </div>
+          <!--PREGUNTA 4-->
+          <div class="pregunta4" *ngIf="pregunta_4">
+            <ion-row style="flex-grow: 1;">
+              <ion-col>
+                <ion-card>
+            
+                  <div align="center" style="padding-top: 10px;">
+                    <img src="../../../assets/Encuesta_Empleados/Pregunta_4.jpg" />
+                  </div> 
+            
+                  <ion-card-header>
+                    <ion-card-title style="color: rgb(157, 156, 156);"><u>Pregunta:</u></ion-card-title>              
+                  </ion-card-header>
+            
+                  <ion-card-content>
+                    <label style="font-size: 18px;color: white;">¿Dejo/recibio mesas sin sillas?</label>
+                    <!--(range, input, radio, check, select).-->     
+            
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col>
+                            <div align="center">
+                              <ion-checkbox id="miElementoSi"  [(ngModel)]="si" (click)="funCapRespuesta4(1)" color="danger"  slot="start"></ion-checkbox>
+                              <ion-label style="margin-left: 10px;"><span style="font-size: 19px">Si</span></ion-label>
+                            </div>                    
+                          </ion-col>
+                          <ion-col>
+                            <div align="center">
+                              <ion-checkbox id="miElementoNo" [(ngModel)]="no" (click)="funCapRespuesta4(2)" color="danger"  slot="start"></ion-checkbox>
+                              <ion-label style="margin-left: 10px;"><span style="font-size: 19px">No</span></ion-label>
+                            </div>
+                          </ion-col>
+                        </ion-row>
+                      </ion-grid>    
+                  </ion-card-content> 
+                </ion-card>
+              </ion-col>
+            </ion-row>
+          </div>
+          <!--PREGUNTA 5-->
+          <div class="pregunta5" *ngIf="pregunta_5">
+            <ion-row style="flex-grow: 1;">
+              <ion-col>
+                <ion-card>
+            
+                  <div align="center" style="padding-top: 10px;">
+                    <img src="../../../assets/Encuesta_Empleados/Pregunta_5.jpg" />
+                  </div> 
+            
+                  <ion-card-header>
+                    <ion-card-title style="color: rgb(157, 156, 156);"><u>Pregunta:</u></ion-card-title>              
+                  </ion-card-header>
+            
+                  <ion-card-content>
+                    <label style="font-size: 18px;color: white;">¿Dejo/recibio elementos rotos a lo largo de la jornada?</label>
+                    <!--(range, input, radio, check, select).-->     
+            
+                    <ion-button mat-button [matMenuTriggerFor]="empleado" fill="clear" style=" width: 100%; border-radius: 5px; background-color: #8D2CE2; color: white;margin-top: 10px;">
+                      <ion-icon name="caret-down-circle"></ion-icon>
+                      Responda
+                    </ion-button>
+                    <mat-menu #empleado="matMenu" class="customize">
+                      <button  mat-menu-item  (click)="funCapRespuesta5(1)">No</button>
+                      <button  mat-menu-item  (click)="funCapRespuesta5(2)">Muchos</button>
+                      <button  mat-menu-item  (click)="funCapRespuesta5(3)">Pocos</button>
+                    </mat-menu> 
+            
+                    <ion-item class="items" style="--border-radius: 6px; margin-top: 15px; padding-left: 3%; padding-right: 3%;">   
+                      <ion-input color="light" id="respuesta" placeholder="Responda" readonly></ion-input>
+                    </ion-item> 
+            
+                  </ion-card-content> 
+                </ion-card>
+              </ion-col>
+            </ion-row>
+          </div> 
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="flex-grow: 1;">
+        <ion-col>    
+          <ion-button *ngIf="!pregunta_5" fill="clear" expand="block" style="border-radius: 5px; background-color: #F26E00; color: white; height: 45px;font-size: 20px;" (click)="onSiguientePregunta()">
+            Siguiente Pregunta
+            <ion-icon name="arrow-forward"></ion-icon>
+          </ion-button> 
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="flex-grow: 1;">
+        <ion-col>    
+          <ion-button *ngIf="!pregunta_1" fill="clear" expand="block" style="border-radius: 5px; background-color: #F26E00; color: white; height: 45px;font-size: 20px;" (click)="onAnteriorPregunta()">
+            <ion-icon name="arrow-back"></ion-icon>
+            Anterior Pregunta
+          </ion-button> 
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="flex-grow: 1;">
+        <ion-col>    
+          <ion-button *ngIf="pregunta_5" fill="clear" expand="block" style="border-radius: 5px; background-color: #32ca53; color: white; height: 45px;font-size: 20px;" (click)="onEnviarRespuestas()">
+            <ion-icon name="cloud-upload-outline" style="margin-right: 15px;"></ion-icon>
+            Enviar Encuesta
+          </ion-button> 
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>    
+</div>    

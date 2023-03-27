@@ -1,0 +1,241 @@
+<ion-content>
+  <div class="fondo" align="center" id="1">
+
+    <div *ngIf="this.escaneoQR && !this.usuarioPedido.pagoConfirmado" (click)="onEscanearQR()"
+      class="contenedorGeneral">
+
+      <ion-grid style="display: flex; flex-flow: column;position: center;height: 100%;">
+        <ion-row style="flex-grow: 1;">
+          <ion-col style=" width: 70%;">
+            <ion-icon name="qr-code-outline" style="font-size: 320px;margin-top: 120px;"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <label style="margin-bottom: 120px;font-size: 24px;font-weight: bold;">ESCANEAR QR DEL LOCAL</label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div *ngIf="menuOpciones" style="height: 100%;">
+      <div style="height: 100%;" align="center">
+        <ion-row
+          style="flex-grow: 1; height: 30%; background-color: #8D2CE2; margin-left: 3%; margin-right: 3%; margin-bottom: 5%; margin-top: 5%;">
+          <div style="width: 100%;height: 100%;" (click)="verEncuestas()">
+            <h2 style="width: 100%;height: 100%;margin-top: 30%;font-weight: bold;" align="center">
+              VER ENCUESTAS
+            </h2>
+          </div>
+        </ion-row>
+        <ion-row
+          style="flex-grow: 1; height: 30%;background-color: #8D2CE2; margin-left: 3%; margin-right: 3%; margin-bottom: 5%">
+          <div style="width: 100%;height: 100%;" (click)="entrarListaEspera()">
+            <h2 style="width: 100%;height: 100%;margin-top: 30%;font-weight: bold;color: white;" align="center">
+              ENTRAR A LISTA DE ESPERA
+            </h2>
+          </div>
+        </ion-row>
+        <ion-row style="flex-grow: 1; height: 30%;background-color: #8D2CE2; margin-left: 3%; margin-right: 3%;">
+          <div style="width: 100%;height: 100%;" (click)="mostrarMenu()">
+            <h2 style="width: 100%;height: 100%;margin-top: 30%;font-weight: bold;color: white;" align="center">
+              ESCANEAR QR MESA
+            </h2>
+          </div>
+        </ion-row>
+      </div>
+    </div>
+
+    <div *ngIf="todasEncuestas" style="height: 100%; width: 100%;">
+      <div>
+        <ion-button expand="block" color="light" (click)="esconderEncuestas()">Volver</ion-button>
+      </div>
+    </div>
+
+    <div *ngIf='this.usuarioActual.mesa == 0 && this.menuOpciones == false && this.variableNormal == true'>
+      <ion-grid style="display: flex; flex-flow: column;position: center;">
+        <ion-row style="flex-grow: 1;">
+          <ion-col style=" width: 70%;">
+            <img src="../../../assets/Spinner.png" style="margin-top: 20%;" [ngClass]="{'loading' : this.loading}"
+              *ngIf="loading" />
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <label style="margin-bottom: 120px;font-size: 30px;color:black">Espere a que se le asigne una
+              mesa...</label>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </div>
+
+
+    <div *ngIf='mesa' style="background-color: #8D2CE2; height: 100%; width: 100%;">
+      <ion-grid style="display: flex; flex-flow: column;position: center;">
+        <ion-row style="flex-grow: 1;">
+          <ion-col>
+            <label style="margin-bottom: 120px;font-size: 50px;">Su mesa es la número</label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="width: 100%; margin-top: 15%;">
+            <label style="margin-bottom: 120px;margin-top: 120px; font-size: 350px;">{{usuarioActual.mesa}}</label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="width: 70%;">
+            <ion-button expand="block" size="large" color="light" (click)="mostrarMenu()"
+              style="--padding-top: 5%; --padding-bottom: 5%;">Escanear QR de la Mesa</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div *ngIf="menu" style="height: 100%; width: 100%;">
+      <app-lista-productos (atrasEvent)="atrasCaptura($event)"></app-lista-productos>
+    </div>
+
+    <div *ngIf="menuOpcionesConfirma || this.usuarioPedido.pagoConfirmado" style="height: 100%;">
+      <div style="height: 100%;" align="center">
+        <ion-row
+          style="flex-grow: 1; height: 30%; background-color: #8D2CE2; margin-left: 3%; margin-right: 3%; margin-bottom: 8%; margin-top: 5%;"
+          *ngIf='this.usuarioPedido != "" && this.usuarioPedido.estado == "pagado" && !this.encuestaCargada'>
+          <div style="width: 100%;height: 100%;" (click)="mostrarEncuesta()">
+            <h2 style="width: 100%;font-weight: bold; margin-top: 30%; color: white;" align="center">
+              COMPLETAR ENCUESTA
+            </h2>
+          </div>
+        </ion-row>
+        <ion-row
+          style="flex-grow: 1; height: 30%; background-color: #8D2CE2; margin-left: 3%; margin-right: 3%; margin-bottom: 8%; margin-top: 5%;"
+          *ngIf="this.encuestaCargada">
+          <div style="width: 100%;height: 100%;" (click)="verEncuestasQR()">
+            <h2 style="width: 100%; font-weight: bold; margin-top: 30%; color: white;" align="center">
+              ESCANEAR QR LOCAL
+            </h2>
+          </div>
+        </ion-row>
+        <ion-row
+          style="flex-grow: 1; height: 30%; background-color: #8D2CE2; margin-left: 3%; margin-right: 3%; margin-bottom: 6%;"
+          *ngIf='this.usuarioPedido.estado == "pagado"'>
+          <div style="width: 100%;height: 100%;" (click)="salir()">
+            <h2 style="width: 100%; font-weight: bold; margin-top: 30%; color: white;" align="center">
+              SALIR
+            </h2>
+          </div>
+        </ion-row>
+        <ion-row
+          style="flex-grow: 1; height: 40%; background-color: #8D2CE2; margin-left: 3%; margin-right: 3%; margin-top: 15%;"
+          *ngIf='this.usuarioPedido != "" && this.usuarioPedido.estado != "entregado" && this.usuarioPedido.estado != "pagado"'>
+          <div style="width: 100%;height: 100%;" (click)="mostrarEstadoPedido()">
+            <h2 style="width: 100%; font-weight: bold; margin-top: 43%; color: white;" align="center">
+              VER ESTADO DEL PEDIDO
+            </h2>
+          </div>
+        </ion-row>
+        <ion-row
+          style="flex-grow: 1; height: 40%; background-color: #8D2CE2; margin-left: 3%; margin-right: 3%; margin-top:10%"
+          *ngIf='this.usuarioPedido != "" && this.usuarioPedido.estado != "entregado" && this.usuarioPedido.estado != "pagado"'>
+          <div style="width: 100%;height: 100%;" (click)="consultarMozo()">
+            <h2 style="width: 100%; font-weight: bold; margin-top: 43%; color: white;" align="center">
+              CONSULTAR MOZO
+            </h2>
+          </div>
+        </ion-row>
+        <ion-row
+          style="flex-grow: 1; height: 40%; background-color: #8D2CE2; margin-left: 3%; margin-right: 3%; margin-bottom: 8%; margin-top: 10%;"
+          *ngIf="this.usuarioPedido == ''">
+          <div style="width: 100%;height: 100%;" (click)="consultarMozo()">
+            <h2 style="width: 100%; font-weight: bold; margin-top: 45%; color: white;" align="center">
+              CONSULTAR MOZO
+            </h2>
+          </div>
+        </ion-row>
+        <ion-row style="flex-grow: 1; height: 45%; background-color: #8D2CE2; margin-left: 3%; margin-right: 3%;"
+          *ngIf="this.usuarioPedido == ''">
+          <div style="width: 100%;height: 100%;" (click)="hacerPedido()">
+            <h2 style="width: 100%; font-weight: bold; margin-top: 50%; color: white;" align="center">
+              HACER PEDIDO
+            </h2>
+          </div>
+        </ion-row>
+        <ion-row
+          style="flex-grow: 1; height: 45%; background-color: #8D2CE2; margin-left: 3%; margin-right: 3%; margin-top:50%"
+          *ngIf='this.usuarioPedido.estado == "entregado"'>
+          <div style="width: 100%;height: 100%;" (click)="pedirCuenta()">
+            <h2 style="width: 100%; font-weight: bold; margin-top: 50%; color: white;" align="center">
+              PEDIR LA CUENTA
+            </h2>
+          </div>
+        </ion-row>
+        <ion-row style="flex-grow: 1; height: 30%; background-color: #8D2CE2; margin-left: 3%; margin-right: 3%;"
+          *ngIf='this.usuarioPedido.estado == "pagado"'>
+          <div style="width: 100%;height: 100%;" (click)="mostrarMenu()">
+            <h2 style="width: 100%; font-weight: bold; margin-top: 30%; color: white;" align="center">
+              ESCANEAR QR MESA
+            </h2>
+          </div>
+        </ion-row>
+      </div>
+    </div>
+
+    <div *ngIf='estadoPedido' style="background-color: #8D2CE2; height: 100%;">
+      <ion-grid style="display: flex; flex-flow: column;position: start;">
+        <ion-row style="flex-grow: 1;">
+          <ion-col>
+            <label style="margin-bottom: 120px;font-size: 50px;">El estado de su pedido es</label>
+          </ion-col>
+        </ion-row>
+        <ion-row style="margin-top: 30%;">
+          <ion-col style="width: 100%; margin-top: 15%;">
+            <label style="margin-bottom: 120px;margin-top: 120px; font-size: 60px;">{{usuarioPedido.estado}}</label>
+          </ion-col>
+        </ion-row>
+        <ion-row style="margin-top: 35%;">
+          <ion-col style="width: 70%;" *ngIf='this.usuarioPedido.estado != "entregado"'>
+            <ion-button expand="block" size="large" color="light" (click)="mostrarMenu()"
+              style="--padding-top: 5%; --padding-bottom: 5%;">Escanear QR de la Mesa</ion-button>
+          </ion-col>
+          <ion-col style="width: 70%;" *ngIf='this.usuarioPedido.estado == "entregado"'>
+            <ion-button expand="block" size="large" color="light" (click)="confirmarEntrega()"
+              style="--padding-top: 5%; --padding-bottom: 5%;">Confirmar Entrega</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div *ngIf="this.encuesta" style="height: 100%; width: 100%;">
+      <app-encuesta-cliente (volverEvent)="volverAtras($event)"></app-encuesta-cliente>
+    </div>
+
+    <div *ngIf='this.cuenta' style="height: 100%; width: 100%;">
+      <app-cuenta (pagadoEvent)="pagadoAtras($event)"></app-cuenta>
+    </div>
+
+    <div *ngIf="chat" style="height: 100%; width: 100%;">
+      <ion-item>
+        <ion-title>Consultar al mozo</ion-title>
+        <ion-button color="tertiary" (click)="esconderChat()">
+          <ion-icon name="log-out-outline"></ion-icon> Volver
+        </ion-button>
+      </ion-item>
+      <app-chat></app-chat>
+    </div>
+
+    <div *ngIf='this.esperarPago && !this.usuarioPedido.pagoConfirmado'>
+      <ion-grid style="display: flex; flex-flow: column;position: center;">
+        <ion-row style="flex-grow: 1;">
+          <ion-col style=" width: 70%;">
+            <img src="../../../assets/Spinner.png" style="margin-top: 20%;" [ngClass]="{'loading' : this.loading}"
+              *ngIf="loading" />
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <label style="margin-bottom: 120px;font-size: 30px;">Espere a que se confirme el pago...</label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+</ion-content>
