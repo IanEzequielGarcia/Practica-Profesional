@@ -1,12 +1,16 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Chart } from 'node_modules/chart.js';
+import { Chart,registerables } from 'node_modules/chart.js';
 import { FirestoreService } from 'src/servicios/firestore.service';
+Chart.register(...registerables);
 @Component({
   selector: 'app-graficos',
   templateUrl: './graficos.component.html',
   styleUrls: ['./graficos.component.scss'],
 })
 export class GraficosComponent implements OnInit {
+  @ViewChild('barCanvas') private barCanvas: ElementRef;
+  @ViewChild('torCanvas') private torCanvas: ElementRef;
+
   barChart: any;
   tortaChart: any;
   cosasLindas: any = [];
@@ -19,8 +23,7 @@ export class GraficosComponent implements OnInit {
   fotosLindas: any = [];
   mostrarImagen = false;
   imagenParaMostrar = '';
-  @ViewChild('barCanvas') private barCanvas: ElementRef;
-  @ViewChild('torCanvas') private torCanvas: ElementRef;
+
   constructor(private firestore: FirestoreService) { }
 
   ngOnInit() {
@@ -42,7 +45,7 @@ export class GraficosComponent implements OnInit {
       data: {
         labels: this.labelsLindos,
         datasets: [{
-          label: '# numero de Me gusta',
+          label: '# cantidad de "Me gusta"',
           data: this.cantLikesLindos,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
@@ -86,7 +89,7 @@ export class GraficosComponent implements OnInit {
       data: {
         labels: this.labelsFeos,
         datasets: [{
-          label: '# numero de Me gusta',
+          label: '# cantidad de "No me gusta"',
           data: this.cantLikesFeos,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',

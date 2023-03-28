@@ -138,6 +138,10 @@ export class CosasLindasFeasComponent implements OnInit {
 
   async modificarFoto(coleccion: string,foto: any, i: any)
   {
+    console.log(coleccion);
+    console.log(foto);
+    console.log(i);
+
     const element = document.getElementById(i);
 
     const elementStyle = window.getComputedStyle(element);

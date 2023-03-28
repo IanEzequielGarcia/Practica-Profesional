@@ -14,10 +14,10 @@
 
   <ion-header  color="tertiary" *ngIf="this.opcion != 0 || this.perfil != 0">
     <ion-item class="header">
-      <ion-title color="success" *ngIf="this.opcion == 1 && this.perfil == 0" class="tituloHeader">Cosas lindas💟</ion-title>
+      <!--<ion-title color="success" *ngIf="this.opcion == 1 && this.perfil == 0" class="tituloHeader">Cosas lindas</ion-title>
 
-      <ion-title color="danger" *ngIf="this.opcion == 2 && this.perfil == 0" class="tituloHeader2" color="danger" >Cosas feas❌</ion-title>
-      <ion-title *ngIf="this.opcion == 3 && this.perfil == 0" class="tituloHeader">Gráficos 📊</ion-title>
+      <ion-title color="danger" *ngIf="this.opcion == 2 && this.perfil == 0" class="tituloHeader2" color="danger" >Cosas feas</ion-title>
+      <ion-title *ngIf="this.opcion == 3 && this.perfil == 0" class="tituloHeader">Gráficos</ion-title>-->
       <ion-title *ngIf="this.perfil != 0" class="tituloHeader">Mis Fotos</ion-title>
     </ion-item>
   </ion-header>
@@ -26,7 +26,8 @@
   <!-- <div class="contenedorTitulo" *ngIf="this.opcion==0">
     <ion-title class="titulo">Inicio</ion-title>
   </div> -->
-  <div (click)="mostrarGraficos()"  *ngIf="this.opcion==0"><h4 style="color: white; background-color: #3eac45; padding:10px; border-radius: 35px;">Ver gráficos📊</h4></div>
+  <!--GRAFICOS-->
+  <!--<div (click)="mostrarGraficos()"  *ngIf="this.opcion==0"><h4 style="color: white; background-color: #3eac45; padding:10px; border-radius: 35px;">Ver gráficos📊</h4></div>-->
 
   <!-- <ion-img src="assets/graphics.png" class="iconGraphics" (click)="mostrarGraficos()"  *ngIf="this.opcion==0"></ion-img> -->
 
@@ -87,6 +88,9 @@
     <ion-fab-list side="start">
       <ion-fab-button color="dark" (click)="volverInicio()">
         <ion-icon name="home"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="mostrarGraficos()">
+        <ion-icon name="bar-chart-outline"></ion-icon>
       </ion-fab-button>
       <ion-fab-button color="danger" (click)="logout()">
         <ion-icon name="log-out-outline"></ion-icon>
