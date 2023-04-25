@@ -13,9 +13,8 @@ import { SplashScreenPage } from '../splash-screen/splash-screen.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule,
-    ReactiveFormsModule,
+    HomePageRoutingModule
   ],
-  declarations: [HomePage,SplashScreenPage]
+  declarations: [HomePage,NumerosComponent,AnimalesComponent,ColoresComponent]
 })
 export class HomePageModule {}
