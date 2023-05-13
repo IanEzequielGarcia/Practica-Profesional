@@ -6,25 +6,26 @@
     width: 100%;
 }
 .textoCurso{
+    height: inherit;
     display: grid;
     justify-content: center;
-    margin-top: 1em;
     font-size: 30px;
 }
 .textoDivision{
     display: grid;
     justify-content: center;
-    margin-top: 1em;
+    margin-top: 35vh;
     font-size: 30px;
 }
 ion-img{
-    height: 40vh;
+    margin-top: 25vh;
+    height: 30vh;
     margin-top: 2em;
 }
 ion-spinner{
     width: 100%;
-    margin-top: 1em;
-    height: 20%;
+    margin-top: 5vh;
+    height: 15%;
 }
 ion-content {
     --background: #7209b7;

@@ -10,7 +10,6 @@ ion-content {
    
     
     .contenedor {
-        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -24,8 +23,8 @@ ion-content {
     }
 
     .divTexto {
-        position: relative;
-        top: 3%;
+        display: flex;
+        justify-content: center;
     }
 
     .divLoading {
@@ -39,18 +38,23 @@ ion-content {
     }
 
     .logoImg {
-        width: 70%;
-        margin-left:40%;
+        position: relative;
+        top: 10vh;
+        width: 40vw;
+        height: 20vh;
+        margin-left:50%;
         -webkit-animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
         animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
         border-radius: 80px;
+        border-color: aliceblue;
+        border-width: 1em;
     }
 
     .loadingImg {
         width: 100%;
     }
 
-    .texto {
+    .texto{
         position: relative;
         font-family: 'Advent Pro', sans-serif;
         font-size: 55px;
@@ -59,6 +63,7 @@ ion-content {
         padding: 10px;
         border-radius: 15px;
     }
+    
 }
 /**
  * ----------------------------------------

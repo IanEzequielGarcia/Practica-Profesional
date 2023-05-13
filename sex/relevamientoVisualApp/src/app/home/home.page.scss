@@ -21,7 +21,7 @@ ion-button{
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
 
-    ion-input{
+    input{
         margin-top: 10px;
         font-size: 18px;
         --padding-top:20px;
@@ -66,7 +66,6 @@ ion-content{
     }
 
     #header{
-        //border: 1px solid red;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -78,11 +77,9 @@ ion-content{
             margin-bottom: 8%;
         }
         img{
-            width: 100px;
-            height: 100px;
+            width: 10em;
+            height: 10em;
             border-radius: 50%;
-            border: 2px solid #ffff;
-
         }
     }
 
@@ -104,8 +101,6 @@ ion-content{
             background-color: #515390;
             
         }
-
-        
     }
 
 
@@ -126,8 +121,6 @@ ion-content{
                 width: 45px;
                 border-radius: 30px;
                 box-shadow: 1px 8px 8px 0px rgba(0,0,0,0.2);
-              
-
             }
 
             .iconoUsuario1:active{

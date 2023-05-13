@@ -1,0 +1,32 @@
+<ion-content>
+  <h6 class="titulo">Crédito QR</h6>
+  <p style="color:whitesmoke">{{authService.email}}</p>
+  <ion-button color="danger" (click)="vaciarCredito()" [disabled]="this.creditoActual == 0">
+    <ion-icon  name="trash" color='warning' ></ion-icon>
+    Borrar créditos
+  </ion-button>
+<div class="contenedor">
+  <div class="contenedorCreditos">
+    <div>
+      <ion-label class="textoCreditos">{{this.creditoActual}}</ion-label>
+    </div>
+  </div>
+</div>
+
+  <div>
+    <div *ngIf="cargando" style="margin-top: 5%;">
+      <ion-spinner name="crescent" color="light"></ion-spinner>
+    </div>
+    <button class="botonQR" (click)="cargarCredito()"
+      [disabled]="this.maximoAlcanzado" *ngIf="cargando==false">
+      <img src="../../assets/qrgif.gif" alt="">
+    </button>
+  </div>
+  
+  <ion-fab horizontal="start" vertical="bottom" slot="fixed">
+    <ion-fab-button color="danger" (click)="logout()">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

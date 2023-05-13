@@ -1,7 +1,0 @@
-{
-  "name": "primeraClaseCordova",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}

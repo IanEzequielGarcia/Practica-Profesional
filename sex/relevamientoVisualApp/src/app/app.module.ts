@@ -13,8 +13,10 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/co
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { SplashPage } from './splash/splash.page';
+import { PerfilComponent } from './perfil/perfil.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,PerfilComponent,SplashPage],
   imports: [
     BrowserModule,
     ReactiveFormsModule,

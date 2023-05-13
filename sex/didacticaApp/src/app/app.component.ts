@@ -1,26 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
-  timeLeft: number = 3;
-  interval:any;
-  cargarTerminada:boolean = false;
+export class AppComponent implements OnInit{
+  timeLeft = 2;
+  interval: any;
+  cargarTerminada = false;
   constructor() {}
 
-  ngOnInit():void{
+  ngOnInit(): void{
     this.startTimer();
   }
   startTimer() {
     this.interval = setInterval(() => {
       if(this.timeLeft > 0) {
         this.timeLeft--;
-      } else if(this.timeLeft == 0) {
+      } else if(this.timeLeft === 0) {
         this.cargarTerminada = true;
       }
-    },1000)
+    },1000);
   }
 }
