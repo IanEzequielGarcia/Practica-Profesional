@@ -12,21 +12,21 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 })
 export class LoginComponent implements OnInit {
   public formLogin: FormGroup;
-  errorMessage = '';
+  errorMessage: string = "";
   mostrarError = false;
   perfiles: string[] = ['Administrador', 'Anónimo', 'Casual'];
-  checkedInvi = false;
-  checkedAdmin = false;
-  checkedAnoni = false;
+  checkedInvi : boolean = false;
+  checkedAdmin : boolean = false;
+  checkedAnoni : boolean = false;
 
-  private checked_usuario: boolean;
-  private checked_admin: boolean;
-  private checked_invitado: boolean;
+  private checked_usuario:boolean;
+  private checked_admin:boolean;
+  private checked_invitado:boolean;
 
   user = {
     email: '',
     password: ''
-  };
+  }
 
   constructor(public fb: FormBuilder, public ruteo: Router, public authService: AuthService, private toastController: ToastController) {
     this.checked_usuario = false;
@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
     this.checked_invitado = false;
 
     this.formLogin = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      'email': ['', [Validators.required, Validators.email]],
+      'password': ['', [Validators.required]],
     });
   }
 
@@ -43,27 +43,27 @@ export class LoginComponent implements OnInit {
 
   logs: string[] = [];
 
-  cargarDatos(dato: number)
+  cargarDatos(dato : number)
   {
     switch(dato)
     {
         case 1:
-          this.user.email = 'usuario@usuario.com';
-          this.user.password = '333333';
+          this.user.email = "usuario@usuario.com";
+          this.user.password = "333333";
           this.formLogin.get('email')?.setValue(this.user.email);
           this.formLogin.get('password')?.setValue(this.user.password);
           this.logeoAutomatico('usuario@usuario.com', '333333');
           break;
         case 2:
-          this.user.email = 'invitado@invitado.com';
-          this.user.password = '222222';
+          this.user.email = "invitado@invitado.com";
+          this.user.password = "222222";
           this.formLogin.get('email')?.setValue(this.user.email);
           this.formLogin.get('password')?.setValue(this.user.password);
           this.logeoAutomatico('invitado@invitado.com', '222222');
           break;
         case 3:
-          this.user.email = 'admin@admin.com';
-          this.user.password = '111111';
+          this.user.email = "admin@admin.com";
+          this.user.password = "111111";
           this.formLogin.get('email')?.setValue(this.user.email);
           this.formLogin.get('password')?.setValue(this.user.password);
           this.logeoAutomatico('admin@admin.com', '111111');
@@ -71,7 +71,21 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  onChangeAdmin(ob: MatCheckboxChange)
+    // handleChange(e) {
+  //   switch (e.detail.value) {
+  //     case 'usuario1':
+  //       this.logeoAutomatico('admin@admin.com', '111111');
+  //       break;
+  //     case 'usuario2':
+  //       this.logeoAutomatico('invitado@invitado.com', '222222')
+  //       break;
+  //     case 'usuario3':
+  //       this.logeoAutomatico('usuario@usuario.com', '333333')
+  //       break;
+  //   }
+  // }
+
+  onChangeAdmin(ob: MatCheckboxChange) 
   {
     if(ob.checked)
     {
@@ -83,14 +97,14 @@ export class LoginComponent implements OnInit {
     else
     {
       this.checkedAdmin = false;
-      this.user.email = '';
-      this.user.password = '';
+      this.user.email = "";
+      this.user.password = "";
       this.formLogin.get('email')?.setValue(this.user.email);
       this.formLogin.get('password')?.setValue(this.user.password);
     }
   }
 
-  onChangeAnonimo(ob: MatCheckboxChange)
+  onChangeAnonimo(ob: MatCheckboxChange) 
   {
     if(ob.checked)
     {
@@ -103,32 +117,37 @@ export class LoginComponent implements OnInit {
     else
     {
       this.checkedAnoni = false;
-      this.user.email = '';
-      this.user.password = '';
+      this.user.email = "";
+      this.user.password = "";
       this.formLogin.get('email')?.setValue(this.user.email);
       this.formLogin.get('password')?.setValue(this.user.password);
     }
   }
 
-  onChangeInvitado(ob: MatCheckboxChange)
+  onChangeInvitado(ob: MatCheckboxChange) 
   {
     if(ob.checked)
     {
       this.checkedInvi = true;
       this.checkedAnoni = false;
       this.checkedAdmin = false;
-
+      
       this.cargarDatos(2);
     }
     else
-    {
+    { 
       this.checkedInvi = false;
-      this.user.email = '';
-      this.user.password = '';
+      this.user.email = "";
+      this.user.password = "";
       this.formLogin.get('email')?.setValue(this.user.email);
       this.formLogin.get('password')?.setValue(this.user.password);
     }
   }
+
+
+
+
+
 
   loguearse() {
     try {
@@ -138,9 +157,9 @@ export class LoginComponent implements OnInit {
         .then(
           res => {
             if (res == null) {
-              console.log('error al logearse', res);
+              console.log("error al logearse", res);
             } else {
-              console.log('ingreso!: ', res);
+              console.log("ingreso!: ", res);
               this.mostrarError = false;
               this.ruteo.navigateByUrl('home');
               this.formLogin.reset();
@@ -170,21 +189,21 @@ export class LoginComponent implements OnInit {
           this.presentToast('top', 'medium');
         });
     } catch (error) {
-      console.log('Error al ingresar', error);
+      console.log("Error al ingresar", error);
     }
   }
 
   logeoAutomatico(email: string, password: string) {
-    this.formLogin.controls.email.setValue(email);
-    this.formLogin.controls.password.setValue(password);
+    this.formLogin.controls['email'].setValue(email);
+    this.formLogin.controls['password'].setValue(password);
     this.loguearse();
   }
 
   async presentToast(position: 'top' | 'middle' | 'bottom', color: 'primary' | 'light' | 'medium') {
     const toast = await this.toastController.create({
       message: this.errorMessage,
-      position,
-      color,
+      position: position,
+      color: color,
       icon: 'key',
       buttons: [
         {

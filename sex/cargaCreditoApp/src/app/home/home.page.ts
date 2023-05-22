@@ -1,31 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/authService/auth.service';
 import { FirestoreService } from '../services/fireStoreService/firestore.service';
 import { ScannerService } from 'src/app/services/scannerService/scanner.service';
 import { ToastController } from '@ionic/angular';
-import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit {
-  usuario: any;
-  perfiles: any = [];
-  creditoActual: any;
-  maximoAlcanzado = false;
-  vaciar = false;
-  cargando=false;
-  constructor(public ruteo: Router, public authService: AuthService, public firestore: FirestoreService,
-  public scanner: ScannerService,public toastController: ToastController) {}
+export class HomePage {
+  usuario : any;
+  perfiles : any = [];
+  creditoActual : any;
+  maximoAlcanzado : boolean = false;
+  vaciar : boolean = false;
+  cargando:boolean=false;
+  constructor(public ruteo: Router, public authService: AuthService, public firestore:FirestoreService,  
+  public scanner : ScannerService,public toastController : ToastController) {}
 
   ngOnInit() {
     this.cargando = true;
     this.firestore.getCollectionWithId('perfiles','perfilId').subscribe((value)=>{
       this.perfiles = value;
-      console.log(this.perfiles);
-      for (const item of this.perfiles)
+      for (let item of this.perfiles) 
       {
         if(this.authService.email == item.correo)
         {
@@ -39,48 +37,42 @@ export class HomePage implements OnInit {
       {
         this.cargando = false;
       }
-    });
+    })
   }
 
-  async cargarCredito()
+  cargarCredito()
   {
-     let codigo: string;
-    //  const result = await BarcodeScanner.startScan(); // start scanning and wait for a result
-
-    //  // if the result has content
-    //  if (result.hasContent) {
-    //    console.log(result.content); // log the raw scanned content
-    //  }
+     let codigo : string;
     this.scanner.test().then((a)=>{
       codigo = a;
-      this.scanner.stopScan();
+      this.scanner.stopScan(); 
       switch(codigo)
       {
-        case '8c95def646b6127282ed50454b73240300dccabc':
+        case "8c95def646b6127282ed50454b73240300dccabc":
           this.establecerCarga(10);
           if(this.usuario.credito == this.usuario.maximo)
           {
-            this.MostrarToast('Credito al maximo!!!!⚠️','','light').then((toast: any) => {
+            this.MostrarToast('Credito maximo alcanzado!',"","light").then((toast : any) => {
               toast.present();
             });
             this.maximoAlcanzado = true;
           }
           break;
-        case 'ae338e4e0cbb4e4bcffaf9ce5b409feb8edd5172 ':
+        case "ae338e4e0cbb4e4bcffaf9ce5b409feb8edd5172 ":
           this.establecerCarga(50);
           if(this.usuario.credito == this.usuario.maximo)
           {
-            this.MostrarToast('Credito al maximo!!!!⚠️','','light').then((toast: any) => {
+            this.MostrarToast('Credito al maximo!',"","light").then((toast : any) => {
               toast.present();
             });
             this.maximoAlcanzado = true;
           }
           break;
-        case '2786f4877b9091dcad7f35751bfcf5d5ea712b2f':
+        case "2786f4877b9091dcad7f35751bfcf5d5ea712b2f":
           this.establecerCarga(100);
           if(this.usuario.credito == this.usuario.maximo)
           {
-            this.MostrarToast('Credito al maximo!!!!⚠️','','light').then((toast: any) => {
+            this.MostrarToast('Credito al maximo!',"","light").then((toast : any) => {
               toast.present();
             });
             this.maximoAlcanzado = true;
@@ -90,9 +82,9 @@ export class HomePage implements OnInit {
     });
   }
 
-  establecerCarga(valor: number)
+  establecerCarga(valor : number)
   {
-    let variable1: any;
+    let variable1 : any;
 
     if(valor == 10)
     {
@@ -110,19 +102,19 @@ export class HomePage implements OnInit {
       }
     }
 
-    if(this.usuario.perfil == 'admin')
+    if(this.usuario.perfil == "admin")
     {
       if(variable1 < 2)
       {
         this.usuario.credito += valor;
         variable1++;
-        this.MostrarToast('Credito: ' + valor + ' cargado!👍🏼','','success').then((toast: any) => {
+        this.MostrarToast('Nuevo Credito: ' + valor ,'',"success").then((toast : any) => {
           toast.present();
         });
       }
       else
       {
-        this.MostrarToast('No puede usar el codigo mas de 2 veces‼️','','danger').then((toast: any) => {
+        this.MostrarToast('No puede usar el codigo mas de 2 veces','',"danger").then((toast : any) => {
           toast.present();
         });
       }
@@ -133,13 +125,13 @@ export class HomePage implements OnInit {
       {
         this.usuario.credito += valor;
         variable1 ++;
-        this.MostrarToast('Credito: ' + valor + ' cargado!👍🏼','','success').then((toast: any) => {
+        this.MostrarToast('Nuevo Credito: ' + valor,"","success").then((toast : any) => {
           toast.present();
         });
       }
       else
       {
-        this.MostrarToast('Solo puede usar una vez‼️','','danger').then((toast: any) => {
+        this.MostrarToast('El código solo se puede usar una vez',"","danger").then((toast : any) => {
           toast.present();
         });
       }
@@ -164,14 +156,14 @@ export class HomePage implements OnInit {
     this.firestore.modificarPerfil(this.usuario,this.usuario.perfilId);
   }
 
-  MostrarToast(message: string, header: string, color: string)
+  MostrarToast(message : string, header : string, color : string)
   {
     return this.toastController.create({
-            header,
-            message,
+            header: header,
+            message: message,
             buttons: ['Ok'],
             position: 'bottom',
-            color
+            color : color
     });
   }
 
@@ -185,24 +177,24 @@ export class HomePage implements OnInit {
     this.maximoAlcanzado = false;
 
     this.firestore.modificarPerfil(this.usuario,this.usuario.perfilId).then(() =>{
-      this.MostrarToast('Se borarron los creditos!','','success').then((toast: any) => {
+      this.MostrarToast('Se limpiaron sus creditos!',"","success").then((toast : any) => {
         toast.present();
       });
-    });
+    })
   }
 
   vaciarCredito()
   {
-    this.MostrarToastVaciar('Quiere eliminar el credito?⚠️ ','','primary').then((toast: any) => {
+    this.MostrarToastVaciar("Quiere eliminar su credito? ","","primary").then((toast : any) => {
       toast.present();
-    });
+    }); 
   }
 
-  MostrarToastVaciar(message: string, header: string, color: string)
+  MostrarToastVaciar(message : string, header : string, color : string)
   {
     return this.toastController.create({
-            header,
-            message,
+            header: header,
+            message: message,
             buttons: [
               {
                 side: 'end',
@@ -217,7 +209,7 @@ export class HomePage implements OnInit {
               }
             ],
             position: 'bottom',
-            color
+            color : color
     });
   }
 

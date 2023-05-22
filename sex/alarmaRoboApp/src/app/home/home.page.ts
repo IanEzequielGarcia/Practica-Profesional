@@ -78,7 +78,6 @@ export class HomePage {
 
       if (acceleration.x > 5) {
         //Inclinacion Izquierda
-
         this.posicionActualCelular = 'izquierda';
         this.movimientoIzquierda();
       }
@@ -154,17 +153,15 @@ export class HomePage {
   }
 
   errorApagado() {
-    if (this.primerIngresoFlash) {
-      this.primerIngresoFlash ? this.flashlight.switchOn() : null;
-      this.audio.src = this.audioError;
-      this.audio.play();
-      this.vibration.vibrate(5000);
-      setTimeout(() => {
-        this.primerIngresoFlash = false;
-        this.flashlight.switchOff();
-        this.vibration.vibrate(0);
-      }, 5000);
-    }
+    this.primerIngresoFlash ? this.flashlight.switchOn() : null;
+    this.audio.src = this.audioError;
+    this.audio.play();
+    this.vibration.vibrate(5000);
+    setTimeout(() => {
+      this.primerIngresoFlash = false;
+      this.flashlight.switchOff();
+      this.vibration.vibrate(0);
+    }, 5000);
   }
 
   async checkPassword() {
